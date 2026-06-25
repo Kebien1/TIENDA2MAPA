@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.BtnGuardar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -55,6 +55,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.Dgv = new System.Windows.Forms.DataGridView();
             this.Mapa = new GMap.NET.WindowsForms.GMapControl();
+            this.BtnInformacion = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -71,6 +73,8 @@
             this.toolStripSeparator2,
             this.BtnEliminar,
             this.toolStripSeparator3,
+            this.BtnInformacion,
+            this.toolStripSeparator5,
             this.toolStripLabel1,
             this.Buscar,
             this.toolStripSeparator4,
@@ -278,8 +282,8 @@
             // 
             // Dgv
             // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dgv.Location = new System.Drawing.Point(49, 527);
@@ -314,6 +318,21 @@
             this.Mapa.Size = new System.Drawing.Size(505, 320);
             this.Mapa.TabIndex = 5;
             this.Mapa.Zoom = 0D;
+            // 
+            // BtnInformacion
+            // 
+            this.BtnInformacion.Image = ((System.Drawing.Image)(resources.GetObject("BtnInformacion.Image")));
+            this.BtnInformacion.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnInformacion.Name = "BtnInformacion";
+            this.BtnInformacion.Size = new System.Drawing.Size(128, 41);
+            this.BtnInformacion.Text = "INFORMACION";
+            this.BtnInformacion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BtnInformacion.Click += new System.EventHandler(this.BtnInformacion_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 44);
             // 
             // Form1
             // 
@@ -368,6 +387,8 @@
         private System.Windows.Forms.RadioButton Op2;
         private System.Windows.Forms.DataGridView Dgv;
         private GMap.NET.WindowsForms.GMapControl Mapa;
+        private System.Windows.Forms.ToolStripButton BtnInformacion;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
     }
 }
 
