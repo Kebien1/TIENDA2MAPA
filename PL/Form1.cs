@@ -158,5 +158,29 @@ namespace PL
             }
 
         }
+
+        private void BtnReportePdf_Click(object sender, EventArgs e)
+        {
+            // 1. Crear una ventana para que el usuario elija dónde guardar el PDF
+            SaveFileDialog guardar = new SaveFileDialog();
+            guardar.Filter = "Archivo PDF|*.pdf";
+            guardar.Title = "Guardar Reporte de Clientes";
+            guardar.FileName = "ReporteClientes.pdf";
+
+            // 2. Si el usuario le da a "Guardar" y no cancela la ventana
+            if (guardar.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    // 3. Llamar a la BRL enviando la tabla y la ruta elegida por el usuario
+                    ObjCli.ExportarAPdf(Dgv, guardar.FileName);
+                    MessageBox.Show("Reporte PDF generado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al generar el PDF: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }

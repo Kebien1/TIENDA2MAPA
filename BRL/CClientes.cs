@@ -6,6 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+
+
+
 namespace BRL
 {
     public class CClientes
@@ -61,6 +67,58 @@ namespace BRL
             Object[] P = new object[] { Cod };
             ObjAcc.Ejecutar("SpEliminaCliente", P);
         }
+
+
+
+        public void ExportarAPdf(DataGridView Dgv, string rutaArchivo)
+        {
+            // 1. Crear el formato del documento (Tamaño A4, y márgenes)
+            Document doc = new Document(PageSize.A4, 25, 25, 30, 30);
+
+            // 2. Crear el escritor que enlazará el documento con el disco duro (rutaArchivo)
+            PdfWriter.GetInstance(doc, new FileStream(rutaArchivo, FileMode.Create));
+
+            // 3. Abrir el documento para empezar a escribir
+            doc.Open();
+
+            // 4. Agregar un título centrado
+            Paragraph titulo = new Paragraph("Reporte de Clientes", FontFactory.GetFont("Arial", 18, Font.BOLD));
+            titulo.Alignment = Element.ALIGN_CENTER;
+            doc.Add(titulo);
+            doc.Add(new Chunk("\n")); // Salto de línea
+
+            // 5. Crear la Tabla del PDF basándonos en la cantidad de columnas del DataGridView
+            PdfPTable tabla = new PdfPTable(Dgv.Columns.Count);
+            tabla.WidthPercentage = 100; // Que ocupe todo el ancho de la hoja
+
+            // 6. Extraer los títulos de las columnas del DataGridView
+            for (int j = 0; j < Dgv.Columns.Count; j++)
+            {
+                PdfPCell celda = new PdfPCell(new Phrase(Dgv.Columns[j].HeaderText, FontFactory.GetFont("Arial", 10, Font.BOLD)));
+                celda.BackgroundColor = BaseColor.LIGHT_GRAY; // Fondo gris para el encabezado
+                celda.HorizontalAlignment = Element.ALIGN_CENTER;
+                tabla.AddCell(celda);
+            }
+
+            // 7. Extraer los datos de cada cliente fila por fila
+            for (int i = 0; i < Dgv.Rows.Count - 1; i++) // -1 para no leer la fila vacía del final
+            {
+                for (int j = 0; j < Dgv.Columns.Count; j++) // Recorremos cada columna
+                {
+                    if (Dgv.Rows[i].Cells[j].Value != null)// Verificamos que el valor no sea nulo
+                    {
+                        PdfPCell celda = new PdfPCell(new Phrase(Dgv.Rows[i].Cells[j].Value.ToString(), FontFactory.GetFont("Arial", 9)));
+                        tabla.AddCell(celda);
+                    }
+                }
+            }
+
+            // 8. Insertar la tabla completa y cerrar el documento
+            doc.Add(tabla);
+            doc.Close();
+        }
+
+
 
     }
 }

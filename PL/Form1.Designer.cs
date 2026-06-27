@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.BtnGuardar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -37,6 +37,8 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.BtnEliminar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.BtnInformacion = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.Buscar = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -55,8 +57,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.Dgv = new System.Windows.Forms.DataGridView();
             this.Mapa = new GMap.NET.WindowsForms.GMapControl();
-            this.BtnInformacion = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.BtnReportePdf = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -78,7 +81,10 @@
             this.toolStripLabel1,
             this.Buscar,
             this.toolStripSeparator4,
-            this.BtnFin});
+            this.BtnFin,
+            this.toolStripSeparator6,
+            this.BtnReportePdf,
+            this.toolStripSeparator7});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1370, 44);
@@ -129,6 +135,21 @@
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 44);
+            // 
+            // BtnInformacion
+            // 
+            this.BtnInformacion.Image = ((System.Drawing.Image)(resources.GetObject("BtnInformacion.Image")));
+            this.BtnInformacion.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnInformacion.Name = "BtnInformacion";
+            this.BtnInformacion.Size = new System.Drawing.Size(128, 41);
+            this.BtnInformacion.Text = "INFORMACION";
+            this.BtnInformacion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BtnInformacion.Click += new System.EventHandler(this.BtnInformacion_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 44);
             // 
             // toolStripLabel1
             // 
@@ -282,8 +303,8 @@
             // 
             // Dgv
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.Dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dgv.Location = new System.Drawing.Point(49, 527);
@@ -319,20 +340,25 @@
             this.Mapa.TabIndex = 5;
             this.Mapa.Zoom = 0D;
             // 
-            // BtnInformacion
+            // BtnReportePdf
             // 
-            this.BtnInformacion.Image = ((System.Drawing.Image)(resources.GetObject("BtnInformacion.Image")));
-            this.BtnInformacion.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BtnInformacion.Name = "BtnInformacion";
-            this.BtnInformacion.Size = new System.Drawing.Size(128, 41);
-            this.BtnInformacion.Text = "INFORMACION";
-            this.BtnInformacion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BtnInformacion.Click += new System.EventHandler(this.BtnInformacion_Click);
+            this.BtnReportePdf.Image = ((System.Drawing.Image)(resources.GetObject("BtnReportePdf.Image")));
+            this.BtnReportePdf.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnReportePdf.Name = "BtnReportePdf";
+            this.BtnReportePdf.Size = new System.Drawing.Size(143, 41);
+            this.BtnReportePdf.Text = "EXPORTAR A PDF";
+            this.BtnReportePdf.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BtnReportePdf.Click += new System.EventHandler(this.BtnReportePdf_Click);
             // 
-            // toolStripSeparator5
+            // toolStripSeparator6
             // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 44);
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 44);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 44);
             // 
             // Form1
             // 
@@ -389,6 +415,9 @@
         private GMap.NET.WindowsForms.GMapControl Mapa;
         private System.Windows.Forms.ToolStripButton BtnInformacion;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripButton BtnReportePdf;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
     }
 }
 
